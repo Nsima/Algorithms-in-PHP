@@ -1,0 +1,20 @@
+<?php
+        function generate_primes($n) {
+            $limit = sqrt($n);
+            $primes = array_fill(0, $n, 0);
+            $primes[0] = $primes[1] = 1;
+            for($i = 2; $i <= $limit; $i++) {
+                if($primes[$i] === 0) {
+                    for($j = 2; $j < $n; $j++) {
+                        if($i*$j > $n)
+                            break;
+                        else
+                            $primes[$i*$j] = 1;
+                    }
+                }
+            }
+            return sizeof($primes)-1;
+        }
+
+
+?>
